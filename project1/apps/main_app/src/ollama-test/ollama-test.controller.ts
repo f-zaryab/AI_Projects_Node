@@ -6,7 +6,12 @@ export class OllamaTestController {
   constructor(private readonly olTService: OllamaTestService) {}
 
   @Get('/')
-  testResponse(): string {
-    return this.olTService.test();
+  async testResponse() {
+    const data = await this.olTService.test();
+
+    return {
+      success: true,
+      data,
+    };
   }
 }
