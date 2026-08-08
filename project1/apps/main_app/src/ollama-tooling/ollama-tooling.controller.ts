@@ -6,7 +6,12 @@ export class OllamaToolingController {
   constructor(private readonly olTooling: OllamaToolingService) {}
 
   @Get()
-  test(): string {
-    return this.olTooling.test();
+  async inforAboutJohn() {
+    const data = await this.olTooling.informationAboutJohn();
+
+    return {
+      success: true,
+      data,
+    };
   }
 }
